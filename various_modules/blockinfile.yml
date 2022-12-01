@@ -1,0 +1,13 @@
+---
+- name: to test block in file module
+  hosts: prod
+  tasks:
+    
+    - name: Insert/Update "Match User" configuration block in /etc/ssh/sshd_config
+      blockinfile:
+        path: /var/www/html/index.html
+        block: |
+         This is my first block
+         DO NOT delete this block
+...         
+

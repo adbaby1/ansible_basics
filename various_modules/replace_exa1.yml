@@ -1,0 +1,10 @@
+---
+- name: to test line in file module
+  hosts: mhost1
+  tasks:
+    - name: To replace a keyword
+      replace: 
+        path: /var/www/html/index.html
+        regexp: 'google'
+        replace: 'Macbook'
+...        

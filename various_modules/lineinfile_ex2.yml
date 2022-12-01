@@ -1,0 +1,10 @@
+---
+- name: to test line in file module
+  hosts: mhost1
+  tasks:
+    - name: Add a line to a file if the file does not exist, without passing regexp
+      lineinfile:
+        path: /var/www/html/index.html
+        regexp: '^mhost1'
+        line: "{{ ansible_facts['default_ipv4']['macaddress'] }}"
+...        

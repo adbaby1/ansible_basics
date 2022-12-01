@@ -1,0 +1,11 @@
+---
+- name: this is a test of fetch module
+  hosts: mhost1
+  tasks:
+    
+
+    - name: fetch file from mhost1 to ansible control node
+      fetch:
+        src: /tmp/fetch.txt
+        dest: /tmp/
+...

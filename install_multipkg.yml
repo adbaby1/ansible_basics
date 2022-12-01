@@ -1,0 +1,15 @@
+---
+- hosts: all
+  tasks:
+    - name: install the latest version of Apache
+      yum:
+        name: httpd
+        state: latest
+
+     
+    - name: install the latest version of nginx
+      yum:
+        name: nginx
+        state: latest
+...
+

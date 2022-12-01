@@ -1,0 +1,32 @@
+---
+- name: Install httpd php 
+  hosts: all
+  
+  
+  tasks:
+    - name: Install httpd php pkgs
+      yum:
+        name: httpd,php
+        state: latest
+    - name: Start and enable service
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+    - name: Allow firewall rule for http
+      firewalld:
+        service: http
+        permanent: yes
+        state: enabled
+        immediate: yes
+    - name: Create a Home page
+      copy:
+        content: |
+                {{ inventory_hostname }}
+                {{ ansible_fqdn }}
+                {{ ansible_facts['default_ipv4']['address'] }}
+                {{ ansible_facts['default_ipv4']['macaddress'] }}
+                {{ ansible_facts['devices']['sda']['size'] }}
+        dest: /var/www/html/index.html
+      tags: update  
+...

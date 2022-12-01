@@ -1,0 +1,24 @@
+---
+- name: create user and group
+  hosts: all
+  vars:
+    pass_manu: Cc!@#004      
+  
+
+
+  tasks:
+    - name: create a group
+      group:
+        name: mygroup
+        state: present
+
+    
+    - name: Create a 2048-bit SSH key for user manu in ~manu/.ssh/id_rsa
+      user:
+        name: manu
+        generate_ssh_key: yes
+        ssh_key_bits: 2048
+        ssh_key_file: .ssh/id_rsa
+        password: "{{ pass_manu | password_hash('sha512') }}"
+    
+...        

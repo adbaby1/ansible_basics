@@ -1,0 +1,10 @@
+---
+- name: simple copy
+  hosts: prod
+  tasks:
+
+    - name: Copy src to dst
+      copy:
+        src: ./inventory/hosts
+        dest: /tmp/
+...

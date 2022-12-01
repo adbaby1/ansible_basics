@@ -1,0 +1,12 @@
+---
+- name: controlling task
+  hosts: mhost1
+  tasks:
+    - name: create multiple user in mhost1
+      user:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - user1
+        - user2
+        - user3

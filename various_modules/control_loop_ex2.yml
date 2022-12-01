@@ -1,0 +1,13 @@
+---
+- name: controlling task
+  hosts: mhost1
+  tasks:
+    - name: create multiple users with same username as password in mhost1
+      user:
+        name: "{{ item }}"
+        state: present
+        password: "{{ item | password_hash('sha512') }}"
+      loop:
+        - user1
+        - user2
+        - user3

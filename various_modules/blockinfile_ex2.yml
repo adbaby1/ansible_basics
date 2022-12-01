@@ -1,0 +1,14 @@
+---
+- name: to test block in file module
+  hosts: all
+  tasks:
+    
+    - name: Inset multiline 
+      blockinfile:
+        path: /var/www/html/index.html
+        block: |
+         ip: 10.10.2.123
+         macaddress: ee:rr:cc:12;ee;rr;tt
+         hdd: 20 G
+...         
+

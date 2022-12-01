@@ -1,0 +1,10 @@
+---
+-  hosts: all
+   tasks:
+     - name: Allow firewall rule for http
+       firewalld:
+         service: http
+         permanent: yes
+         state: enabled
+         immediate: yes
+...

@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+    - name: remove Nginx
+      yum:
+        name: nginx
+        state: absent
+...

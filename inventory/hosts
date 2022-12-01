@@ -1,0 +1,21 @@
+[dev]     # HostGroup Definition Square Bracket
+mhost1   #Host Definition
+
+[test]
+mhost2
+
+[prod]   # HostGroup Definition Square Bracket will be called host
+mhost3
+mhost4
+
+[balancer]
+mhost4
+
+[webservers:children] # Nested Group Definition Square Bracket children, will be called group
+prod                  # Group in the group
+
+[all]
+mhost1
+mhost2
+mhost3
+mhost4

@@ -1,0 +1,19 @@
+[dev] 
+mhost1
+
+[test]
+mhost2
+
+
+[prod] 
+mhost2
+mhost3 pkg=mariadb-server
+
+[balancer]
+mhost4
+
+[webservers:children]
+prod
+
+[prod:vars]
+pkg=httpd

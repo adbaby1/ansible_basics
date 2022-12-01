@@ -1,0 +1,17 @@
+---
+- name: To test variables
+  hosts: mhost1
+  vars_files:
+    - myvars.yml
+
+
+  tasks:
+    - name: Install {{ pkg }} pkg
+      yum:
+        name: "{{ pkg }}"
+        state: latest      
+          
+...
+
+
+

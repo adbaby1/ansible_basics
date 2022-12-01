@@ -1,0 +1,19 @@
+---
+- name: To test variables
+  hosts: prod
+  vars:
+    pkg: ftp
+  vars_files:
+    - myvars.yml
+
+
+  tasks:
+    - name: Install {{ pkg }} pkg
+      yum:
+        name: "{{ pkg }}"
+        state: latest      
+          
+...
+
+
+

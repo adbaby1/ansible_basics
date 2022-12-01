@@ -1,0 +1,11 @@
+---
+- name: To test get_url module
+  hosts: mhost2
+  tasks:
+    - name: Download remote file
+      get_url:
+        url: http://mhost2
+        dest: /tmp/dw_tst.html
+        force: yes
+...        
+

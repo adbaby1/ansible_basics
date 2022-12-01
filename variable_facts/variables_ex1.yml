@@ -1,0 +1,11 @@
+---
+- name: To test variables
+  hosts: prod
+  
+  
+  tasks:
+    - name: Install {{ pkg }} pkg
+      yum:
+        name: "{{ pkg }}"
+        state: latest
+...
